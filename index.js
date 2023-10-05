@@ -78,5 +78,10 @@ client.on('messageCreate', async (message) => {
   }
 });
 
+export default function handler(request, response) {
+  const { name = 'World' } = request.query;
+  return response.send(`Hello ${name}!`);
+}
+
 // Reemplaza 'TOKEN_DEL_BOT' con el token de tu bot de Discord
 client.login(process.env.DISCORD_TOKEN);
