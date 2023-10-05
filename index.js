@@ -1,6 +1,7 @@
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const csvtojson = require('csvtojson');
 const xlsx = require('xlsx');
+const env = require('dotenv').config();
 const client = new Client({
   intents: [GatewayIntentBits.GuildMessages, GatewayIntentBits.Guilds],
   partials: [Partials.Message]
@@ -78,4 +79,4 @@ client.on('messageCreate', async (message) => {
 });
 
 // Reemplaza 'TOKEN_DEL_BOT' con el token de tu bot de Discord
-client.login('MTE1OTU0MDA2MjQwMTM0NzYxNQ.GA0iiJ.C4xwOLOe0BWlXy-DhGOvuOaiEDsg2G7z4l3CCQ');
+client.login(process.env.DISCORD_TOKEN);
