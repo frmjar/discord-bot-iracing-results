@@ -21,8 +21,10 @@ client.on('messageCreate', async (message) => {
     const command = args.shift().toLowerCase();
 
     if (command === 'convertir') {
+      console.log('Comando convertir recibido')
+
       if (message.attachments.size === 0) {
-        return message.channel.send('Debes adjuntar un archivo JSON para convertirlo a Excel.');
+        return message.channel.send('Debes adjuntar un archivo CSV para convertirlo a Excel.');
       }
 
       const attachment = message.attachments.first();
@@ -77,11 +79,6 @@ client.on('messageCreate', async (message) => {
 
   }
 });
-
-export default function handler(request, response) {
-  const { name = 'World' } = request.query;
-  return response.send(`Hello ${name}!`);
-}
 
 // Reemplaza 'TOKEN_DEL_BOT' con el token de tu bot de Discord
 client.login(process.env.DISCORD_TOKEN);
